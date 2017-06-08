@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+
+<div class="cf pa3 ph5-ns outline bg-white mv4">
+	<div class="fl w-100">
+		<form action="{{ url_for('addNewItem')}}" method='post' >
+			<h3>Title:</h3>
+			<input type='text' size=30 name='title' >
+			<h3>Description:</h3>
+			<input type='text' size=30 name='description' >
+			<h3>Category:</h3>
+			<select name='category_id' >
+			{% for i in categories %}
+				<option value="{{i.id}}">{{i.name}}</option>
+			{% endfor %}
+			</select><br><br>
+			<input class="f6 link dim br2 ph3 pv2 mb2 dib white bg-black" type='submit' value='Create'>
+		</form>
+    </div>
+</div>
+
+
+{% endblock %}	

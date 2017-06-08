@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<div class="cf pa3 ph5-ns outline bg-white mv4">
+	<div class="fl w-100 w-25-ns">
+		<h2>Categories</h2>
+      	{% for i in categories %}
+      		<a href="/catalog/{{i.id}}/">{{i.name}}</a><br><br>
+		{% endfor %}
+    </div>
+    <div class="fl w-100 w-75-ns">
+    	<h2>Latest Items {% if 'username' in session %}
+			<a href='/catalog/new'>(Add a new Item)</a>
+		{% endif %}</h2>
+		{% for i in latest_items %}
+			<a href="/catalog/{{i.category_id}}/{{i.title}}/">{{i.title}}</a><br><br>
+		{% endfor %}
+		</div>
+    </div>	
+</div>
+{% endblock %}

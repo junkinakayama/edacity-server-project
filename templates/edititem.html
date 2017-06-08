@@ -1,0 +1,29 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<div class="cf pa3 ph5-ns outline bg-white mv4">
+	<div class="fl w-100">
+		<form action="{{ url_for('editItem', item_name = item.title) }}" method='POST' >
+			<h3>Title:</h3>
+			<input type='text' size=30 name='title' value="{{item.title}}">
+			<h3>Description:</h3>
+			<input type='text' size=30 name='description' value="{{item.description}}">
+			<h3>Category:</h3>
+			<select name='category_id' >
+			{% for i in categories %}
+			{% if item.category_id == i.id %}
+			<option value="{{i.id}}" selected>{{i.name}}</option>
+			{% else %}
+			<option value="{{i.id}}">{{i.name}}</option>
+			{% endif %}
+			{% endfor %}
+			</select>
+			<br>
+			<br>
+			<input class="f6 link dim br2 ph3 pv2 mb2 dib white bg-black" type='submit' value='Edit'>
+
+		</form>
+    </div>
+</div>
+{% endblock %}

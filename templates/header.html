@@ -1,0 +1,12 @@
+<nav class="dt w-100 border-box pa3 ph5-ns bg-moon-gray white">
+	<a class="dtc v-mid link dim w-25" href="{{url_for('showCategoriesAndLatest')}}" title="Home">
+		Home
+	</a>
+	<div class="dtc v-mid w-75 tr">
+		{%if 'username' not in session %}
+		<a href="{{url_for('showLogin')}}" class="f6 link dim br2 ph3 pv2 mb2 dib white bg-black">Click here to Log in </a>
+		{% else %}
+		<a href="{{url_for('disconnect')}}" class="f6 link dim br2 ph3 pv2 mb2 dib white bg-black">Disconnect </a>
+		{% endif %}
+	 </div>
+</nav>
